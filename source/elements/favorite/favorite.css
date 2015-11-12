@@ -1,0 +1,81 @@
+@import "../../helpers/*";
+
+.favorite {
+    max-width: 940px;
+    padding: 0 20px;
+    margin: 24px auto 48px;
+    color: $grey-text;
+    position: relative;
+    &__wrapper-outer {
+        width: 100%;
+        overflow: hidden;
+        font-size: 0;
+        line-height: 0;
+        }
+    &__wrapper-inner {
+        font-size: 0;
+        line-height: 0;
+        white-space: nowrap;
+        }
+    &__button {
+        @mixin clear_button;
+
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        width: 22px;
+        height: 22px;
+        font-size: 0;
+
+        &:before {
+            color: $grey-button;
+            transition: color .25s;
+            }
+
+        &:hover:before,
+        &:focus:before{
+            color: color($grey-button l(-10%));
+            }
+
+        &:active:before{
+            color: color($grey-button l(-20%));
+            }
+
+        &_prev:before {
+            @mixin icon "\f137";
+            font-size: 14px;
+            }
+
+        &_next:before {
+            @mixin icon "\f138";
+            font-size: 14px;
+            }
+        }
+    &__menu {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        min-width: 60px;
+        font-size: 0;
+        z-index: 1;
+        }
+    &__title {
+        white-space: nowrap;
+        font-size: 24px;
+        text-align: left;
+        text-transform: uppercase;
+        margin: 0 0 21px;
+        padding: 0 0 0 30px;
+        line-height: 30px;
+        box-shadow: inset 0 14px 0 0 $white, inset 0 16px 0 0 $grey-text;
+        span {
+            padding: 0 17px;
+            display: inline-block;
+            background: $white;
+            }
+        }
+    }

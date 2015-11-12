@@ -1,0 +1,48 @@
+@import "../../helpers/*";
+
+.product {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 20px 0 0;
+    width: 220px;
+    overflow: hidden;
+    text-align: center;
+    &__link {
+        text-decoration: none;
+        }
+    &__menu {
+        margin: 8px 0 0;
+        display: block;
+        }
+    &__title {
+        text-transform: uppercase;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: bold;
+        color: $tabs-text;
+        }
+    &__price {
+        font-size: 14px;
+        line-height: 24px;
+        display: inline-block;
+        color: $tabs-text;
+        margin: 0 2px 8px;
+        &_new {
+            color: $red;
+            }
+        }
+    &__add {
+        @mixin cyan_button;
+        }
+    &__photo {
+        max-width: 100%;
+        width: 210px;
+        height: 210px;
+        &-wrapper {
+            border: 1px solid $grey-blue;
+            background: $white;
+            padding: 4px;
+            margin: 0 0 12px;
+            }
+        }
+    }

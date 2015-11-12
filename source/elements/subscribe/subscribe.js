@@ -51,7 +51,8 @@
                 , OK = 200
                 , xhr = new XMLHttpRequest()
                 , sender = new Promise((resolve, reject) => {
-                    xhr.open('POST', this.form.getAttribute('action'));
+                    try {
+                        xhr.open('POST', this.form.getAttribute('action'));
                         xhr.send(new FormData(this.form));
                         xhr.onreadystatechange = () => {
                             if (xhr.readyState === DONE) {
@@ -60,11 +61,14 @@
                                 if (xhr.status === OK) {
                                     resolve(xhr.statusText);
                                 } else {
-                                    reject(new Error(xhr.statusText));
+                                    reject(new Error(xhr.code + ': ' + xhr.statusText));
                                 }
                             }
                         };
-                    });
+                    } catch (error) {
+                        reject(error);
+                    }
+                });
 
             this.setState('progress');
             sender.then(this.success.bind(this)).catch(this.fail.bind(this));

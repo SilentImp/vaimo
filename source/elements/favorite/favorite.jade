@@ -1,0 +1,12 @@
+.favorite
+    h1.favorite__title: span Our Favourites
+    menu.favorite__menu(type="toolbar")
+        button.favorite__button.favorite__button_prev(type="button")
+        button.favorite__button.favorite__button_next(type="button")
+    .favorite__wrapper-outer
+        .favorite__wrapper-inner
+            - var i = 6
+            - while (i--)
+                include ../product/product.jade
+                include ../product/product_sale.jade
+    

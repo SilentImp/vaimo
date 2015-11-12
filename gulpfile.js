@@ -106,7 +106,9 @@ gulp.task('js', function() {
   return gulp.src(dirs.source.js)
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(babel())
+    .pipe(babel({
+      "plugins": ["transform-es2015-literals", "transform-es2015-for-of"]
+    }))
     .pipe(concat("scripts.js"))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(dirs.build.js));

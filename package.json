@@ -12,6 +12,8 @@
   "repository": "git@github.com:SilentImp/vaimo.git",
   "dependencies": {
     "autoprefixer-core": "*",
+    "babel-plugin-transform-es2015-for-of": "^6.1.4",
+    "babel-plugin-transform-es2015-literals": "^6.1.4",
     "css2modernizr": "*",
     "cssnano": "*",
     "del": "*",

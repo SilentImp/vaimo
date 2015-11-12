@@ -1,0 +1,95 @@
+@import "../../helpers/*";
+
+.tabs {
+    max-width: 940px;
+    padding: 0 20px;
+    margin: 24px auto;
+    color: $grey-text;
+    display: none;
+    &_builded{
+        display: block;
+        }
+    &__menu {
+        border-bottom: 5px solid $border-color;
+        margin: 0 0 12px;
+        white-space: nowrap;
+        }
+    &__button {
+        @mixin clear_button;
+        height: 31px;
+        line-height: 31px;
+        padding: 0 17px;
+        margin: 0 5px 0 0;
+        border-radius: 3px 3px 0 0;
+        background: $grey-light;
+        color: $tabs-text;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+        &:hover,
+        &:focus {
+            background-color: color($grey-light l(-5%));
+            }
+        &:active {
+            background-color: color($grey-light l(-10%));
+            }
+        &_current {
+            background-color: $tabs-text;
+            color: $white;
+            pointer-events: none;
+            &:hover,
+            &:focus {
+                background-color: color($tabs-text l(+10%));
+                }
+            &:active {
+                background-color: color($tabs-text l(+15%));
+                }
+            }
+        }
+    &__tab {
+        margin: 0 0 58px;
+        columns: 3;
+        column-gap: 20px;
+        text-align: justify;
+        font-size: 12px;
+        line-height: 16px;
+        display: none;
+        &_current {
+            display: block;
+            }
+        p {
+            font-size: 12px;
+            line-height: 16px;
+            margin: 0 0 16px;
+            &:last-child {
+                margin: 0;
+                }
+            }
+        }
+    }
+
+@media (max-width: 920px) {
+    html body .tabs {
+        &__tab {
+            columns: 2;
+            }
+        }
+    }
+
+@media (max-width: 700px) {
+    html body .tabs {
+        &__tab {
+            columns: 1;
+            max-width: 620px;
+            margin: 0 auto;
+            font-size: 14px;
+            line-height: 20px;
+            p {
+                font-size: 14px;
+                line-height: 20px;
+                margin: 0 0 20px;
+                }
+            }
+        }
+    }

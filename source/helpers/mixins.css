@@ -31,7 +31,7 @@
   margin: 0;
   overflow: visible;
   display: inline-block;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   text-align: left;
   vertical-align: middle;
   border-radius: 0;
@@ -48,8 +48,31 @@
     margin: 0;
     overflow: visible;
     display: inline-block;
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     text-align: left;
     vertical-align: middle;
     border-radius: 0;
+    }
+
+@define-mixin cyan_button {
+    @mixin clear_button;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: $cyan;
+    font-weight: bold;
+    border-radius: 3px;
+    color: $white;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: background .25s;
+    cursor: pointer;
+    padding: 0 15px;
+    &:hover,
+    &:focus {
+        background-color: color($cyan l(-10%));
+        }
+    &:active {
+        background-color: color($cyan l(-15%));
+        }
     }

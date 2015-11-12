@@ -3,7 +3,7 @@
 .abstract {
     max-width: 940px;
     padding: 0 20px;
-    margin: 24px auto;
+    margin: 24px auto 20px;
     color: $grey-text;
     &__title {
         white-space: nowrap;
