@@ -1,0 +1,9 @@
+form.subscribe(action="http://frontend-test.vaimo.com/anton.nemtsev/public/newsletter/subscribe/", method="post")
+    fieldset.subscribe__fieldset
+        input.subscribe__email(type="email", name="email", placeholder="firstname.lastname@vaimo.com", value="", required="required")
+        button.subscribe__submit(type="submit") Subscribe
+    p.subscribe__state.subscribe__state_in-progress 
+        span.subscribe__spinner
+        | Subscribeing to newsletter...
+    p.subscribe__state.subscribe__state_success Subscription successful.
+    p.subscribe__state.subscribe__state_fail Email verification failed...

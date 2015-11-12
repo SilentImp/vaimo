@@ -1,0 +1,164 @@
+@import "../../helpers/*";
+
+.subscribe {
+    margin: 14px 0 24px;
+    min-height: 65px;
+    &_success {
+        .subscribe__state_success {
+            display: block;
+            }
+        }
+    &_fail {
+        .subscribe__state_fail {
+            display: block;
+            }
+        }
+    &_progress {
+        .subscribe__state_in-progress {
+            display: block;
+            }
+        }
+    &__spinner {
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        margin: 0 5px 0 0;
+        font-size: 0;
+        transform-origin: 50% 50%;
+        animation: spining 1s linear infinite;
+        &:before {
+            @mixin icon "";
+            font-size: 18px;
+            line-height: 20px;
+            width: 20px;
+            height: 20px;
+            vertical-align: top;
+            }
+        }
+    &__state {
+        font-size: 12px;
+        line-height: 24px;
+        font-style: italic;
+        padding: 0 0 0 41px;
+        margin: 7px 0 0;
+        display: none;
+        &:before {
+            margin: 0 5px 0 0;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            }
+        &_success {
+            color: $green;
+            &:before {
+                @mixin icon "";
+                font-size: 18px;
+                line-height: 20px;
+                }
+            }
+        &_fail {
+            color: $red-dark;
+            &:before {
+                @mixin icon "";
+                font-size: 14px;
+                line-height: 20px;
+                }
+            }
+        }
+    &__fieldset {
+        background: $white;
+        border-radius: 5px;
+        padding: 3px;
+        line-height: 28px;
+        position: relative;
+        &:before {
+            @mixin icon "";
+            position: absolute;
+            left: 7px;
+            top: 0;
+            height: 34px;
+            line-height: 34px;
+            font-size: 20px;
+            color: $grey-text;
+            z-index: 0;
+            }
+        }
+    &__submit {
+        @mixin clear_button;
+        float: right;
+        width: 110px;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        background: $cyan;
+        border-radius: 3px;
+        color: $white;
+        font-size: 12px;
+        text-transform: uppercase;
+        transition: background .25s;
+        cursor: pointer;
+        &:hover,
+        &:focus {
+            background-color: color($cyan l(-10%));
+            }
+        &:active {
+            background-color: color($cyan l(-15%));
+            }
+        }
+    &__email {
+        @mixin clear_input;
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        height: 28px;
+        width: calc(100% - 116px);
+        padding: 7px 20px 7px 32px;
+        box-sizing: border-box;
+        color: $grey-text;
+        font-size: 12px;
+        line-height: 14px;
+        background: none;
+        z-index: 1;
+        &::-webkit-input-placeholder {
+            font-size: 12px;
+            line-height: 14px;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            top: 2px;
+            }
+        &:-moz-placeholder {
+            font-size: 12px;
+            line-height: 14px;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            top: 2px;
+            }
+        &::-moz-placeholder {
+            font-size: 12px;
+            line-height: 14px;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            top: 2px;
+            }
+        &:-ms-input-placeholder {
+            font-size: 12px;
+            line-height: 14px;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            top: 2px;
+            }
+        }
+    }
+
+
+@keyframes spining {
+    to {
+        transform: rotate(360deg);
+    }
+}
