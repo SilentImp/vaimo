@@ -4,11 +4,8 @@
     position: relative;
     max-width: 940px;
     padding: 0 20px;
-    margin: 24px auto 48px;
+    margin: 24px auto 38px;
     font-size: 0;
-    &__menu {
-
-        }
     &__paginator {
         text-align: center;
         font-size: 0;
@@ -93,6 +90,7 @@
         overflow: hidden;
         white-space: nowrap;
         margin: 0 auto 10px;
+        background: $white-dark;
         }
     &__slide {
         display: inline-block;

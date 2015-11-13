@@ -1,0 +1,172 @@
+@import "../../helpers/*";
+
+.navigation{
+    position: relative;
+    max-width: 940px;
+    padding: 0;
+    margin: 16px auto 0;
+    display: block;
+    font-size: 0;
+    border-bottom: 5px solid $tabs-text;
+    z-index: 1;
+    @mixin clear;
+    &__title {
+        color: $border-color;
+        font-size: 12px;
+        line-height: 23px;
+        font-weight: bold;
+        padding: 0 17px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 100%;
+        box-sizing: border-box;
+        }
+    &>.navigation{
+        &__link {
+            font-size: 12px;
+            line-height: 31px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            float: left;
+            color: $tabs-text;
+            padding: 0 17px;
+            border-bottom: 5px solid $tabs-text;
+            margin: 0 0 -5px;
+            display: inline-block;
+            height: 31px;
+            &_right {
+                float: right;
+                }
+            &_marked {
+                color: $red;
+                }
+            &:active,
+            &:focus,
+            &:hover {
+                border-color: $cyan;
+                color: $white;
+                background-color: $tabs-text;
+                }
+            }
+        &__dropdown {
+            display: inline-block;
+            position: relative;
+            float: left;
+
+            &_right {
+                float: right;
+                }
+            &_marked>.navigation__label{
+                color: $red;
+                }
+
+            &:active>.navigation,
+            &:focus>.navigation,
+            &:hover>.navigation {
+                &__label {
+                    border-color: $cyan;
+                    color: $white;
+                    background-color: $tabs-text;
+                    }
+                &__container {
+                    display: block;
+                    }
+                }
+            &>.navigation {
+                &__label {
+                    font-size: 12px;
+                    line-height: 31px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    color: $tabs-text;
+                    padding: 0 17px;
+                    border-bottom: 5px solid $tabs-text;
+                    margin: 0 0 -5px;
+                    display: inline-block;
+                    height: 31px;
+                    }
+                &__container {
+                    display: none;
+                    position: absolute;
+                    top: 36px;
+                    left: 0;
+                    min-width: 100%;
+                    background-color: $grey-light;
+                    z-index: 2;
+                    padding: 7px 0;
+                    .navigation {
+                        &__dropdown {
+                            position: relative;
+                            &:hover>.navigation {
+                                &__label {
+                                    background-color: $grey-blue;
+                                    }
+                                &__container {
+                                    display: block;
+                                    }
+                                }
+                            .navigation {
+                                &__container {
+                                    display: none;
+                                    position: absolute;
+                                    left: 100%;
+                                    top: -7px;
+                                    background-color: $grey-light;
+                                    padding: 7px 0;
+                                    min-width: 100%;
+                                    }
+                                &__label {
+                                    font-size: 12px;
+                                    line-height: 23px;
+                                    height: 23px;
+                                    width: 17px;
+                                    display: block;
+                                    text-decoration: none;
+                                    padding: 0 30px 0 17px;
+                                    white-space: nowrap;
+                                    text-overflow: ellipsis;
+                                    overflow: hidden;
+                                    width: 100%;
+                                    box-sizing: border-box;
+                                    color: $tabs-text;
+                                    position: relative;
+                                    text-transform: uppercase;
+                                    &:after {
+                                        @mixin icon '\f0da';
+                                        position: absolute;
+                                        right: 17px;
+                                        line-height: 23px;
+                                        font-size: 12px;
+                                        }
+                                    }
+                                }
+                            }
+                        &__link {
+                            font-size: 12px;
+                            line-height: 23px;
+                            height: 23px;
+                            width: 17px;
+                            display: block;
+                            text-decoration: none;
+                            white-space: nowrap;
+                            padding: 0 17px;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            width: 100%;
+                            box-sizing: border-box;
+                            color: $tabs-text;
+                            text-transform: uppercase;
+                            &:hover,
+                            &:focus {
+                                background-color: $grey-blue;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
