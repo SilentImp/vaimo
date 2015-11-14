@@ -1,0 +1,55 @@
+@import "../../helpers/*";
+
+.search {
+    position: relative;
+    border: 1px solid $grey-blue;
+    background: $white;
+    border-radius: 4px;
+    box-shadow: 0 0 0 3px $grey-light;
+    height: 22px;
+    line-height: 22px;
+    display: inline-block;
+    float: right;
+    margin: 24px 0 0;
+    padding: 4px;
+    @mixin clear;
+    &:before {
+        @mixin icon '\f002';
+        color: $tabs-text;
+        position: absolute;
+        top: 7px;
+        left: 9px;
+        z-index: 1;
+        }
+    &__keyword {
+        @mixin clear_input;
+        float: left;
+        height: 22px;
+        color: $tabs-text;
+        font-weight: 200;
+        padding: 0 0 0 33px;
+        }
+    &__category {
+        float: right;
+        height: 22px;
+        line-height: 22px;
+        padding: 0 20px 0 7px;
+        background: $grey-blue;
+        border-radius: 2px;
+        color: $white;
+        font-weight: 500;
+        font-size: 11px;
+        text-transform: uppercase;
+        margin: 0 0 0 4px;
+        position: relative;
+        cursor: pointer;
+        &:after {
+            @mixin icon '\f0d7';
+            position: absolute;
+            top: 12px;
+            right: 8px;
+            line-height: 0;
+            pointer-events: none;
+            }
+        }
+    }

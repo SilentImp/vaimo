@@ -11,7 +11,6 @@
         text-decoration: none;
         }
     &__menu {
-        margin: 8px 0 0;
         display: block;
         }
     &__title {
@@ -33,6 +32,7 @@
         }
     &__add {
         @mixin cyan_button;
+        text-decoration: none;
         }
     &__photo {
         max-width: 100%;

@@ -1,0 +1,12 @@
+@import "../../helpers/*";
+
+.stripe {
+    height: 40px;
+    line-height: 40px;
+    background-color: $cyan;
+    &__wrapper {
+        max-width: 940px;
+        padding: 0 20px;
+        margin: auto;
+        }
+    }

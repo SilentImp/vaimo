@@ -1,6 +1,7 @@
 @import "../../helpers/*";
 
 .navigation{
+    clear: both;
     position: relative;
     max-width: 940px;
     padding: 0;

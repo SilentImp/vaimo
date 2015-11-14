@@ -1,0 +1,17 @@
+@import "../../helpers/*";
+
+.logotype{
+    width: 215px;
+    height: 46px;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    background: url("../images/logotype.png") 0px 0px no-repeat;
+    background-size: contain;
+    float: left;
+    margin: 0 0 30px;
+    &__link {
+        text-decoration: none;
+        }
+    }

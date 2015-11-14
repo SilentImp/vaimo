@@ -1,5 +1,8 @@
 @import "../../helpers/*";
 
 .header {
+    max-width: 940px;
+    margin: 25px auto 0;
 
+    @mixin clear;
     }

@@ -4,7 +4,7 @@
     position: relative;
     max-width: 940px;
     padding: 0 20px;
-    margin: 24px auto 38px;
+    margin: 14px auto 38px;
     font-size: 0;
     &__paginator {
         text-align: center;
