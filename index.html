@@ -9,35 +9,48 @@
     <link rel="stylesheet" href="css/styles.css"/>
   </head>
   <body>
-    <nav class="navigation"><a href="#" class="navigation__link">Women</a><a href="#" class="navigation__link">Men</a><a href="#" class="navigation__link">Junior</a><a href="#" class="navigation__link">Accessories</a>
-      <div class="navigation__dropdown"> 
-        <div class="navigation__label">Collections</div>
-        <div class="navigation__container">
-          <div class="navigation__title">Year</div>
-          <div class="navigation__dropdown"> 
-            <div class="navigation__label">2014</div>
-            <div class="navigation__container"><a href="#" class="navigation__link">Summer</a><a href="#" class="navigation__link">Autumn</a><a href="#" class="navigation__link">Winter</a><a href="#" class="navigation__link">Spring</a></div>
-          </div>
-          <div class="navigation__dropdown"> 
-            <div class="navigation__label">2013</div>
-            <div class="navigation__container"><a href="#" class="navigation__link">Summer</a><a href="#" class="navigation__link">Autumn</a><a href="#" class="navigation__link">Winter</a><a href="#" class="navigation__link">Spring</a></div>
-          </div>
-          <div class="navigation__dropdown"> 
-            <div class="navigation__label">2012</div>
-            <div class="navigation__container"><a href="#" class="navigation__link">Summer</a><a href="#" class="navigation__link">Autumn</a><a href="#" class="navigation__link">Winter</a><a href="#" class="navigation__link">Spring</a></div>
-          </div>
-          <div class="navigation__dropdown"> 
-            <div class="navigation__label">2011</div>
-            <div class="navigation__container"><a href="#" class="navigation__link">Summer</a><a href="#" class="navigation__link">Autumn</a>
-              <div class="navigation__dropdown"> 
-                <div class="navigation__label">Winter</div>
-                <div class="navigation__container"><a href="#" class="navigation__link">First Half</a><a href="#" class="navigation__link">Second Half</a></div>
-              </div><a href="#" class="navigation__link">Spring</a>
+    <div class="stripe">
+      <div class="stripe__wrapper">
+        <section class="language">Swedish</section>
+        <nav class="social"><a href="#" class="social__link social__link_tw"></a><a href="#" class="social__link social__link_fb"></a><a href="#" class="social__link social__link_in"></a></nav>
+      </div>
+    </div>
+    <header class="header"><a href="/" class="logotype__link">
+        <h1 class="logotype">Demostore: nifty brand slogan goes here</h1></a>
+      <form action="/search/" method="post" class="search">
+        <input type="text" value="" placeholder="Search" name="keyword" required="required" class="search__keyword"/>
+        <div class="search__category">Products</div>
+      </form>
+      <nav class="navigation"><a href="#" class="navigation__link">Women</a><a href="#" class="navigation__link">Men</a><a href="#" class="navigation__link">Junior</a><a href="#" class="navigation__link">Accessories</a>
+        <div class="navigation__dropdown"> 
+          <div class="navigation__label">Collections</div>
+          <div class="navigation__container">
+            <div class="navigation__title">Year</div>
+            <div class="navigation__dropdown"> 
+              <div class="navigation__label">2014</div>
+              <div class="navigation__container"><a href="#" class="navigation__link">Summer</a><a href="#" class="navigation__link">Autumn</a><a href="#" class="navigation__link">Winter</a><a href="#" class="navigation__link">Spring</a></div>
             </div>
-          </div><a href="#" class="navigation__link">Link</a><a href="#" class="navigation__link">Other Link</a>
-        </div>
-      </div><a href="#" class="navigation__link navigation__link_marked">Sale</a><a href="#" class="navigation__link navigation__link_right">My account</a>
-    </nav>
+            <div class="navigation__dropdown"> 
+              <div class="navigation__label">2013</div>
+              <div class="navigation__container"><a href="#" class="navigation__link">Summer</a><a href="#" class="navigation__link">Autumn</a><a href="#" class="navigation__link">Winter</a><a href="#" class="navigation__link">Spring</a></div>
+            </div>
+            <div class="navigation__dropdown"> 
+              <div class="navigation__label">2012</div>
+              <div class="navigation__container"><a href="#" class="navigation__link">Summer</a><a href="#" class="navigation__link">Autumn</a><a href="#" class="navigation__link">Winter</a><a href="#" class="navigation__link">Spring</a></div>
+            </div>
+            <div class="navigation__dropdown"> 
+              <div class="navigation__label">2011</div>
+              <div class="navigation__container"><a href="#" class="navigation__link">Summer</a><a href="#" class="navigation__link">Autumn</a>
+                <div class="navigation__dropdown"> 
+                  <div class="navigation__label">Winter</div>
+                  <div class="navigation__container"><a href="#" class="navigation__link">First Half</a><a href="#" class="navigation__link">Second Half</a></div>
+                </div><a href="#" class="navigation__link">Spring</a>
+              </div>
+            </div><a href="#" class="navigation__link">Link</a><a href="#" class="navigation__link">Other Link</a>
+          </div>
+        </div><a href="#" class="navigation__link navigation__link_marked">Sale</a><a href="#" class="navigation__link navigation__link_right">My account</a>
+      </nav>
+    </header>
     <div class="scroller">
       <div class="scroller__wrapper">
         <figure class="scroller__slide"><img src="images/slide-1.jpg" alt="Slide" class="scroller__photo"/></figure>
@@ -65,131 +78,83 @@
       </menu>
       <div class="favorite__wrapper-outer">
         <div class="favorite__wrapper-inner">
-          <article class="product"><a href="#" class="product__link">
+          <article class="product"><a href="/fullview/" class="product__link">
               <figure class="product__photo-wrapper"><img src="images/product.png" alt="Product Photo" class="product__photo"/></figure>
-              <div class="product__details">
-                <h2 class="product__title">Winter Sweatshirt</h2>
-                <p class="product__price">€ 79.00</p>
-              </div></a>
-            <menu type="toolbar" class="product">
-              <button type="button" class="product__add">Add to Cart</button>
-            </menu>
+              <h2 class="product__title">Winter Sweatshirt</h2></a>
+            <p class="product__price">€ 79.00</p>
+            <nav class="product__menu"><a href="/add/item/id/" class="product__add">Add to Cart</a></nav>
           </article>
-          <article class="product"><a href="#" class="product__link">
+          <article class="product"><a href="/fullview/" class="product__link">
               <figure class="product__photo-wrapper"><img src="images/product.png" alt="Product Photo" class="product__photo"/></figure>
-              <div class="product__details">
-                <h2 class="product__title">Women Trousers</h2>
-                <del class="product__price product__price_old">€ 79.00</del>
-                <p class="product__price product__price_new">€ 59.00</p>
-              </div></a>
-            <menu type="toolbar" class="product">
-              <button type="button" class="product__add">Add to Cart</button>
-            </menu>
+              <h2 class="product__title">Women Trousers</h2></a>
+            <del class="product__price product__price_old">€ 79.00</del>
+            <p class="product__price product__price_new">€ 59.00</p>
+            <nav class="product__menu"><a href="/add/item/id/" class="product__add">Add to Cart</a></nav>
           </article>
-          <article class="product"><a href="#" class="product__link">
+          <article class="product"><a href="/fullview/" class="product__link">
               <figure class="product__photo-wrapper"><img src="images/product.png" alt="Product Photo" class="product__photo"/></figure>
-              <div class="product__details">
-                <h2 class="product__title">Winter Sweatshirt</h2>
-                <p class="product__price">€ 79.00</p>
-              </div></a>
-            <menu type="toolbar" class="product">
-              <button type="button" class="product__add">Add to Cart</button>
-            </menu>
+              <h2 class="product__title">Winter Sweatshirt</h2></a>
+            <p class="product__price">€ 79.00</p>
+            <nav class="product__menu"><a href="/add/item/id/" class="product__add">Add to Cart</a></nav>
           </article>
-          <article class="product"><a href="#" class="product__link">
+          <article class="product"><a href="/fullview/" class="product__link">
               <figure class="product__photo-wrapper"><img src="images/product.png" alt="Product Photo" class="product__photo"/></figure>
-              <div class="product__details">
-                <h2 class="product__title">Women Trousers</h2>
-                <del class="product__price product__price_old">€ 79.00</del>
-                <p class="product__price product__price_new">€ 59.00</p>
-              </div></a>
-            <menu type="toolbar" class="product">
-              <button type="button" class="product__add">Add to Cart</button>
-            </menu>
+              <h2 class="product__title">Women Trousers</h2></a>
+            <del class="product__price product__price_old">€ 79.00</del>
+            <p class="product__price product__price_new">€ 59.00</p>
+            <nav class="product__menu"><a href="/add/item/id/" class="product__add">Add to Cart</a></nav>
           </article>
-          <article class="product"><a href="#" class="product__link">
+          <article class="product"><a href="/fullview/" class="product__link">
               <figure class="product__photo-wrapper"><img src="images/product.png" alt="Product Photo" class="product__photo"/></figure>
-              <div class="product__details">
-                <h2 class="product__title">Winter Sweatshirt</h2>
-                <p class="product__price">€ 79.00</p>
-              </div></a>
-            <menu type="toolbar" class="product">
-              <button type="button" class="product__add">Add to Cart</button>
-            </menu>
+              <h2 class="product__title">Winter Sweatshirt</h2></a>
+            <p class="product__price">€ 79.00</p>
+            <nav class="product__menu"><a href="/add/item/id/" class="product__add">Add to Cart</a></nav>
           </article>
-          <article class="product"><a href="#" class="product__link">
+          <article class="product"><a href="/fullview/" class="product__link">
               <figure class="product__photo-wrapper"><img src="images/product.png" alt="Product Photo" class="product__photo"/></figure>
-              <div class="product__details">
-                <h2 class="product__title">Women Trousers</h2>
-                <del class="product__price product__price_old">€ 79.00</del>
-                <p class="product__price product__price_new">€ 59.00</p>
-              </div></a>
-            <menu type="toolbar" class="product">
-              <button type="button" class="product__add">Add to Cart</button>
-            </menu>
+              <h2 class="product__title">Women Trousers</h2></a>
+            <del class="product__price product__price_old">€ 79.00</del>
+            <p class="product__price product__price_new">€ 59.00</p>
+            <nav class="product__menu"><a href="/add/item/id/" class="product__add">Add to Cart</a></nav>
           </article>
-          <article class="product"><a href="#" class="product__link">
+          <article class="product"><a href="/fullview/" class="product__link">
               <figure class="product__photo-wrapper"><img src="images/product.png" alt="Product Photo" class="product__photo"/></figure>
-              <div class="product__details">
-                <h2 class="product__title">Winter Sweatshirt</h2>
-                <p class="product__price">€ 79.00</p>
-              </div></a>
-            <menu type="toolbar" class="product">
-              <button type="button" class="product__add">Add to Cart</button>
-            </menu>
+              <h2 class="product__title">Winter Sweatshirt</h2></a>
+            <p class="product__price">€ 79.00</p>
+            <nav class="product__menu"><a href="/add/item/id/" class="product__add">Add to Cart</a></nav>
           </article>
-          <article class="product"><a href="#" class="product__link">
+          <article class="product"><a href="/fullview/" class="product__link">
               <figure class="product__photo-wrapper"><img src="images/product.png" alt="Product Photo" class="product__photo"/></figure>
-              <div class="product__details">
-                <h2 class="product__title">Women Trousers</h2>
-                <del class="product__price product__price_old">€ 79.00</del>
-                <p class="product__price product__price_new">€ 59.00</p>
-              </div></a>
-            <menu type="toolbar" class="product">
-              <button type="button" class="product__add">Add to Cart</button>
-            </menu>
+              <h2 class="product__title">Women Trousers</h2></a>
+            <del class="product__price product__price_old">€ 79.00</del>
+            <p class="product__price product__price_new">€ 59.00</p>
+            <nav class="product__menu"><a href="/add/item/id/" class="product__add">Add to Cart</a></nav>
           </article>
-          <article class="product"><a href="#" class="product__link">
+          <article class="product"><a href="/fullview/" class="product__link">
               <figure class="product__photo-wrapper"><img src="images/product.png" alt="Product Photo" class="product__photo"/></figure>
-              <div class="product__details">
-                <h2 class="product__title">Winter Sweatshirt</h2>
-                <p class="product__price">€ 79.00</p>
-              </div></a>
-            <menu type="toolbar" class="product">
-              <button type="button" class="product__add">Add to Cart</button>
-            </menu>
+              <h2 class="product__title">Winter Sweatshirt</h2></a>
+            <p class="product__price">€ 79.00</p>
+            <nav class="product__menu"><a href="/add/item/id/" class="product__add">Add to Cart</a></nav>
           </article>
-          <article class="product"><a href="#" class="product__link">
+          <article class="product"><a href="/fullview/" class="product__link">
               <figure class="product__photo-wrapper"><img src="images/product.png" alt="Product Photo" class="product__photo"/></figure>
-              <div class="product__details">
-                <h2 class="product__title">Women Trousers</h2>
-                <del class="product__price product__price_old">€ 79.00</del>
-                <p class="product__price product__price_new">€ 59.00</p>
-              </div></a>
-            <menu type="toolbar" class="product">
-              <button type="button" class="product__add">Add to Cart</button>
-            </menu>
+              <h2 class="product__title">Women Trousers</h2></a>
+            <del class="product__price product__price_old">€ 79.00</del>
+            <p class="product__price product__price_new">€ 59.00</p>
+            <nav class="product__menu"><a href="/add/item/id/" class="product__add">Add to Cart</a></nav>
           </article>
-          <article class="product"><a href="#" class="product__link">
+          <article class="product"><a href="/fullview/" class="product__link">
               <figure class="product__photo-wrapper"><img src="images/product.png" alt="Product Photo" class="product__photo"/></figure>
-              <div class="product__details">
-                <h2 class="product__title">Winter Sweatshirt</h2>
-                <p class="product__price">€ 79.00</p>
-              </div></a>
-            <menu type="toolbar" class="product">
-              <button type="button" class="product__add">Add to Cart</button>
-            </menu>
+              <h2 class="product__title">Winter Sweatshirt</h2></a>
+            <p class="product__price">€ 79.00</p>
+            <nav class="product__menu"><a href="/add/item/id/" class="product__add">Add to Cart</a></nav>
           </article>
-          <article class="product"><a href="#" class="product__link">
+          <article class="product"><a href="/fullview/" class="product__link">
               <figure class="product__photo-wrapper"><img src="images/product.png" alt="Product Photo" class="product__photo"/></figure>
-              <div class="product__details">
-                <h2 class="product__title">Women Trousers</h2>
-                <del class="product__price product__price_old">€ 79.00</del>
-                <p class="product__price product__price_new">€ 59.00</p>
-              </div></a>
-            <menu type="toolbar" class="product">
-              <button type="button" class="product__add">Add to Cart</button>
-            </menu>
+              <h2 class="product__title">Women Trousers</h2></a>
+            <del class="product__price product__price_old">€ 79.00</del>
+            <p class="product__price product__price_new">€ 59.00</p>
+            <nav class="product__menu"><a href="/add/item/id/" class="product__add">Add to Cart</a></nav>
           </article>
         </div>
       </div>
