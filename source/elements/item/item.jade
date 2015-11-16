@@ -1,0 +1,11 @@
+mixin item(count, price)
+    .item
+        a.item__link(href="#")
+            img.item__photo(src="images/photo.jpg", alt="Item photo")
+            .item__details 
+                h3.item__title Product Name
+                p.item__summary 
+                    = count 
+                    | x € 
+                    = price
+        button.item__remove(type="button")

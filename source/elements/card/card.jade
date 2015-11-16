@@ -1,0 +1,9 @@
+include ../item/item.jade
+.card
+    p.card__summary Cart 3 Items €75.00
+    button.card__checkout(type="button") Checkout
+    .card__list
+        .card__items
+            +item(1, '25.00')
+            +item(1, '50.00')
+        button.card__checkout.card__checkout_list(type="button") Go To Checkout

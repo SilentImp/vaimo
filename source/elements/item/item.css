@@ -1,0 +1,55 @@
+@import "../../helpers/*";
+
+.item {
+    min-width: 262px;
+    margin: 0 0 6px;
+    position: relative;
+    color: $blue;
+    @mixin clear;
+    white-space: nowrap;
+    &__photo {
+        width: 55px;
+        height: 55px;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 17px 0 0;
+        }
+    &__details {
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+        }
+    &__link {
+        text-decoration: none;
+        color: $blue;
+        }
+    &__summary {
+        font-size: 12px;
+        line-height: 18px;
+        }
+    &__title {
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 18px;
+        }
+    &__remove {
+        @mixin clear_button;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin: -15px 0 0;
+        font-size: 0;
+        line-height: 0;
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        cursor: pointer;
+        &:before {
+            @mixin icon '\f00d';
+            color: $blue;
+            font-size: 24px;
+            line-height: 30px;
+            height: 30px;
+            }
+        }
+    }

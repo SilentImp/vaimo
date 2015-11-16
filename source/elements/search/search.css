@@ -20,11 +20,13 @@
         top: 7px;
         left: 9px;
         z-index: 1;
+        font-size: 18px;
         }
     &__keyword {
         @mixin clear_input;
         float: left;
         height: 22px;
+        width: 106px;
         color: $tabs-text;
         font-weight: 200;
         padding: 0 0 0 33px;
