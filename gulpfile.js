@@ -19,18 +19,13 @@ var gulp = require('gulp')
     , uglify = require('gulp-uglify')
     , uglifycss = require('gulp-uglifycss')
     , ext = require('gulp-ext')
-    , ts = require('gulp-typescript')
     , babel = require("gulp-babel")
-    , browserify = require('browserify')
-    , source = require('vinyl-source-stream')
-    , del = require('del')
     , dirs = {
         'source': {
             'jade': ['./source/elements/**/*.jade', './source/pages/*.jade', './source/partials/*.jade'],
             'page': './source/pages/*.jade',
             'copy': './source/copy/**/*',
             'js': ['./source/elements/**/*.js', './source/js/*.js'],
-            'ts': ['./source/elements/**/*.ts', './source/js/*.ts'],
             'css': ['./source/elements/**/*.css', './source/css/**/*.css'],
             'images': './source/images/**/*',
             'fonts': './source/fonts/**/*'
@@ -86,41 +81,12 @@ gulp.task('phtml', function() {
         .pipe(gulp.dest(dirs.build.phtml));
 });
 
-gulp.task('bebel.5.8', function() {
+gulp.task('js', function() {
     return gulp.src(dirs.source.js)
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(babel())
-        .pipe(concat("prescripts.js"))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(dirs.build.js));
-});
-
-gulp.task('bundle', ['bebel.5.8'], function() {
-    return browserify(dirs.build.js + 'prescripts.js')
-        .bundle()
-        .pipe(source('scripts.js'))
-        .pipe(gulp.dest(dirs.build.js));
-});
-
-gulp.task('js', ['bundle'], function() {
-    del(dirs.build.js + 'prescripts.js');
-});
-
-gulp.task('ts', function() {
-
-    var tsResult =  gulp.src(dirs.source.ts)
-        .pipe(plumber())
-        .pipe(sourcemaps.init())
-        .pipe(ts({
-            target: 'ES6'
-            , removeComments: true
-            , declarationFiles: false
-            , noExternalResolve: true
-        }));
-
-    return tsResult.js
-        .pipe(concat('scripts.js'))
+        .pipe(concat("scripts.js"))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(dirs.build.js));
 });
