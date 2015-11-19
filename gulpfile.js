@@ -20,13 +20,13 @@ var gulp = require('gulp')
     , uglifycss = require('gulp-uglifycss')
     , ext = require('gulp-extension-change')
     , ext2 = require('gulp-ext')
-    , ts = require('gulp-typescript')
+    , babel = require("gulp-babel")
     , dirs = {
         'source': {
             'jade': ['./source/elements/**/*.jade', './source/pages/*.jade', './source/partials/*.jade'],
             'page': './source/pages/*.jade',
             'copy': './source/copy/**/*',
-            'js': ['./source/elements/**/*.js', './source/js/*.js','./source/elements/**/*.ts', './source/js/*.ts'],
+            'js': ['./node_modules/regenerator/runtime.js', './source/elements/**/*.js', './source/js/*.js','./source/elements/**/*.ts', './source/js/*.ts'],
             'css': ['./source/elements/**/*.css', './source/css/**/*.css'],
             'images': './source/images/**/*',
             'fonts': './source/fonts/**/*'
@@ -89,19 +89,7 @@ gulp.task('js', function() {
     var tsResult =  gulp.src(dirs.source.js)
         .pipe(plumber())
         .pipe(sourcemaps.init())
-        // .pipe(ext2.replace('ts'))
-        // .pipe(ext({
-        //     afterExtension: 'ts',
-        //     copy: true
-        // }))
-        .pipe(ts({
-            target: 'ES6'
-            , removeComments: true
-            , declarationFiles: false
-            , noExternalResolve: true
-        }));
-
-    return tsResult.js
+        .pipe(babel())
         .pipe(concat('scripts.js'))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(dirs.build.js));
