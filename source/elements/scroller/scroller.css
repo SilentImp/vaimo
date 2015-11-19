@@ -91,6 +91,11 @@
         white-space: nowrap;
         margin: 0 auto 10px;
         background: $white-dark;
+        position: relative;
+        &-inner {
+            position: relative;
+            transform: translateX(0);
+            }
         }
     &__slide {
         display: inline-block;

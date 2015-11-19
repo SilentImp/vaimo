@@ -1,19 +1,15 @@
 .scroller
     .scroller__wrapper
-        figure.scroller__slide
-            img.scroller__photo(src="images/slide-1.jpg", alt="Slide")
-        figure.scroller__slide
-            img.scroller__photo(src="images/slide-2.jpg", alt="Slide")
-        figure.scroller__slide
-            img.scroller__photo(src="images/slide-3.jpg", alt="Slide")
-        figure.scroller__slide
-            img.scroller__photo(src="images/slide-4.jpg", alt="Slide")
+        .scroller__wrapper-inner
+            a.scroller__slide(href="#")
+                img.scroller__photo(src="images/slide-1.jpg", alt="Slide")
+            a.scroller__slide(href="#")
+                img.scroller__photo(src="images/slide-2.jpg", alt="Slide")
+            a.scroller__slide(href="#")
+                img.scroller__photo(src="images/slide-3.jpg", alt="Slide")
+            a.scroller__slide(href="#")
+                img.scroller__photo(src="images/slide-4.jpg", alt="Slide")
     menu.scroller__menu(type="toolbar")
         button.scroller__prev(type="button")
         button.scroller__next(type="button")
     menu.scroller__paginator(type="toolbar")
-        button.scroller__page.scroller__page_current(type="button", data-page="1"): span
-        button.scroller__page(type="button", data-page="2"): span
-        button.scroller__page(type="button", data-page="3"): span
-        button.scroller__page(type="button", data-page="4"): span
-        button.scroller__page(type="button", data-page="5"): span
