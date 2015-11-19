@@ -25,7 +25,7 @@ var gulp = require('gulp')
             'jade': ['./source/elements/**/*.jade', './source/pages/*.jade', './source/partials/*.jade'],
             'page': './source/pages/*.jade',
             'copy': './source/copy/**/*',
-            'js': ['./source/elements/**/*.js', './source/js/*.js'],
+            'js': ['./node_modules/regenerator/runtime.js', './source/elements/**/*.js', './source/js/*.js'],
             'css': ['./source/elements/**/*.css', './source/css/**/*.css'],
             'images': './source/images/**/*',
             'fonts': './source/fonts/**/*'
