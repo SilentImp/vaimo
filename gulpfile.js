@@ -23,6 +23,7 @@ var gulp = require('gulp')
     , babel = require("gulp-babel")
     , browserify = require('browserify')
     , source = require('vinyl-source-stream')
+    , del = require('del')
     , dirs = {
         'source': {
             'jade': ['./source/elements/**/*.jade', './source/pages/*.jade', './source/partials/*.jade'],
@@ -85,19 +86,25 @@ gulp.task('phtml', function() {
         .pipe(gulp.dest(dirs.build.phtml));
 });
 
-gulp.task('js', function() {
-    gulp.src(dirs.source.js)
+gulp.task('bebel.5.8', function() {
+    return gulp.src(dirs.source.js)
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(babel())
         .pipe(concat("prescripts.js"))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(dirs.build.js));
+});
 
+gulp.task('bundle', ['bebel.5.8'], function() {
     return browserify(dirs.build.js + 'prescripts.js')
         .bundle()
         .pipe(source('scripts.js'))
         .pipe(gulp.dest(dirs.build.js));
+});
+
+gulp.task('js', ['bundle'], function() {
+    del(dirs.build.js + 'prescripts.js');
 });
 
 gulp.task('ts', function() {
