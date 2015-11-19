@@ -18,15 +18,18 @@ var gulp = require('gulp')
     , build = require('gulp-gh-pages')
     , uglify = require('gulp-uglify')
     , uglifycss = require('gulp-uglifycss')
-    , ext = require('gulp-extension-change')
-    , ext2 = require('gulp-ext')
+    , ext = require('gulp-ext')
     , ts = require('gulp-typescript')
+    , babel = require("gulp-babel")
+    , browserify = require('browserify')
+    , source = require('vinyl-source-stream')
     , dirs = {
         'source': {
             'jade': ['./source/elements/**/*.jade', './source/pages/*.jade', './source/partials/*.jade'],
             'page': './source/pages/*.jade',
             'copy': './source/copy/**/*',
-            'js': ['./source/elements/**/*.js', './source/js/*.js','./source/elements/**/*.ts', './source/js/*.ts'],
+            'js': ['./source/elements/**/*.js', './source/js/*.js'],
+            'ts': ['./source/elements/**/*.ts', './source/js/*.ts'],
             'css': ['./source/elements/**/*.css', './source/css/**/*.css'],
             'images': './source/images/**/*',
             'fonts': './source/fonts/**/*'
@@ -78,22 +81,30 @@ gulp.task('phtml', function() {
         .pipe(jade({
             pretty: true
         }))
-        .pipe(ext({
-            afterExtension: 'phtml',
-            copy: false
-        }))
+        .pipe(ext.replace('phtml'))
         .pipe(gulp.dest(dirs.build.phtml));
 });
 
 gulp.task('js', function() {
-    var tsResult =  gulp.src(dirs.source.js)
+    gulp.src(dirs.source.js)
         .pipe(plumber())
         .pipe(sourcemaps.init())
-        // .pipe(ext2.replace('ts'))
-        // .pipe(ext({
-        //     afterExtension: 'ts',
-        //     copy: true
-        // }))
+        .pipe(babel())
+        .pipe(concat("prescripts.js"))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(dirs.build.js));
+
+    return browserify(dirs.build.js + 'prescripts.js')
+        .bundle()
+        .pipe(source('scripts.js'))
+        .pipe(gulp.dest(dirs.build.js));
+});
+
+gulp.task('ts', function() {
+
+    var tsResult =  gulp.src(dirs.source.ts)
+        .pipe(plumber())
+        .pipe(sourcemaps.init())
         .pipe(ts({
             target: 'ES6'
             , removeComments: true
