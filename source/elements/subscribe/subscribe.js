@@ -52,7 +52,7 @@
                 , xhr = new XMLHttpRequest()
                 , sender = new Promise((resolve, reject) => {
                     try {
-                        xhr.open('POST', this.form.getAttribute('action'));
+                        xhr.open('GET', 'js/subscribe.json');
                         xhr.send(new FormData(this.form));
                         xhr.onreadystatechange = () => {
                             if (xhr.readyState === DONE) {

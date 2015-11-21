@@ -28,7 +28,7 @@
                 , xhr = new XMLHttpRequest()
                 , sender = new Promise((resolve, reject) => {
                     try {
-                        xhr.open('GET', this.widget.getAttribute('data-url'));
+                        xhr.open('GET', 'js/tabs.json');
                             xhr.send();
                             xhr.onreadystatechange = () => {
                                 if (xhr.readyState === DONE) {
@@ -51,6 +51,7 @@
          * @description Build widget
          */
         build (message) {
+
             let data = JSON.parse(message.replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t").replace(/\f/g, "\\f"));
 
             this.current_button = null;
