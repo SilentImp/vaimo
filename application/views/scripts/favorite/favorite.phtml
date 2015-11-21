@@ -1,0 +1,14 @@
+<div class="favorite">
+    <h1 class="favorite__title">
+        <span>Our Favourites</span>
+    </h1>
+    <menu type="toolbar" class="favorite__menu">
+        <button type="button" class="favorite__button favorite__button_prev"></button>
+        <button type="button" class="favorite__button favorite__button_next"></button>
+    </menu>
+    <div class="favorite__wrapper-outer">
+        <div class="favorite__wrapper-inner">
+            <?php echo $this->partialLoop('product/product.phtml', $this->products()); ?>
+        </div>
+    </div>
+</div>

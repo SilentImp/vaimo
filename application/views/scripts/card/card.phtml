@@ -1,0 +1,11 @@
+<div class="card">
+    <p class="card__summary">Cart 3 Items €75.00</p>
+    <button type="button" class="card__checkout">Checkout</button>
+    <div class="card__list">
+        <div class="card__items">
+            <?php echo $this->render('item/item_1.phtml'); ?>
+            <?php echo $this->render('item/item_2.phtml'); ?>
+        </div>
+        <button type="button" class="card__checkout card__checkout_list">Go To Checkout</button>
+    </div>
+</div>

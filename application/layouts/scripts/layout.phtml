@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Frontend Test | Vaimo Shop</title>
+    <script src="js/modernizr.js"></script>
+	<?php echo $this->headLink()->appendStylesheet('css/styles.css'); ?>
+  </head>
+  <body>
+
+	<?php echo $this->render('header.phtml'); ?>
+	<?php echo $this->layout()->content ?>
+  	<?php echo $this->render('footer.phtml'); ?>
+
+    <script src="js/classList.js/classList.min.js"></script>
+    <script src="js/promise-polyfill/Promise.min.js"></script>
+    <script src="js/es5-shim/es5-shim.min.js"></script>
+    <script src="js/es5-shim/es5-sham.min.js"></script>
+	<?php echo $this->headScript()->appendFile('js/scripts.js'); ?>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<article class="product">
+    <a href="/fullview/<?php echo $this->id;?>" class="product__link">
+        <figure class="product__photo-wrapper">
+            <img src="<?php echo $this->image; ?>" alt="Product Photo" class="product__photo" />
+        </figure>
+        <h2 class="product__title"><?php echo $this->title;?></h2>
+    </a>
+    <?php
+		if (empty($this->special_price)) {
+			echo "<p class='product__price'>€ ".$this->price."</p>";
+		} else {
+            echo "<del class='product__price product__price_old'>€ ".$this->price."</del><p class='product__price product__price_new'>€ ".$this->special_price."</p>";
+        }
+    ?>
+    <nav class="product__menu"><a href="/add/item/id/<?php echo $this->id;?>" class="product__add">Add to Cart</a></nav>
+</article>

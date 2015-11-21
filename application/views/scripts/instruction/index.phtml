@@ -1,0 +1,150 @@
+<?php 
+    $config = Zend_Registry::get('baseUrl');
+    $offset = $config['offset'];
+?>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700|Droid+Serif' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+        font-family: Arial, Verdana, sans-serif;
+        background: url(http://www.vaimo.co.uk/skin/frontend/vaimo/vaimo/images/repeated-background.jpg) repeat;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 980px;
+        margin: auto;
+        padding: 20px;
+    }
+    
+    ol li {
+        margin-bottom: 20px;
+    }
+    
+    .title {
+        font-weight: bold;
+    }
+    
+    h1 {
+        margin: 30px 0;
+        text-transform: uppercase;
+        font-family: "PT Sans",Helvetica,Arial,sans-serif;
+    }
+    
+    h2 {
+        border-top: 1px solid #000;
+        padding-top: 20px;
+        margin-top: 20px;
+    }
+</style>
+<div class="container">
+    <img src="/fetemplate/public/images/instruction/logo.png" alt="Vaimo" />
+    <h1>Test Instructions</h1>
+    <p><i>Please read all instructions before you start!</i></p>
+    <p>
+    		This is a homework created for you where you, by using your best practice methods, 
+    		are going to implement the provided design using <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong> and <strong>PHP</strong>. 
+    		<br><br>The test is used to measure your knowledge and skill level in these techniques and your 
+    		test will be reviewed by a frontend developer.
+    </p>
+    <p>
+    Notify us when you're done with <strong>ALL</strong> your tasks. We will not review the test if one or more tasks are missing!<br>
+    </p>
+    <p>
+        If you have any further questions just send an email to <a href="mailto:frontend-test@vaimo.com">frontend-test@vaimo.com</a>
+    </p>
+    <p>
+        Good luck!
+    </p>
+    <h2>Areas of judgement</h2>
+    <ul>
+        <li>How well your implementation match the provided design.</li>
+        <li>How well written your code is.</li>
+        <li>How well structured your code is.</li>
+        <li>How optimized your code is.</li>
+        <li>
+            How cross-browser safe your implementation is in the current and major prior release of:
+            <ul>
+                <li>Internet Explorer (Windows)</li>
+                <li>Chrome (Windows & Mac OS)</li>
+                <li>Firefox (Windows & Mac OS)</li>
+                <li>Safari (Windows & Mac OS)</li>
+            </ul>
+        </li>
+    </ul>
+    <h2>Tasks</h2>
+    <ol>
+        <li>
+            <span class="title">Main design implementation *</span> (<a href="<?php echo $offset ?>images/instruction/index.png">see screenshoot</a>)
+        <p>
+    	The design consists of a homepage with additional compositions that 
+    	show the different interactions a user should be able to do with this page. The design should 
+    	be centered in the web browser and top bar and footer backgrounds should be repeatead 
+    	horizontally, covering the entire width of the browser window. 
+        </p>
+        <p>
+            You are free to implement the design how you want (eg. use jQuery, a framework, a css reset) as long as you do it within this Zend Framework setup that has been given to you. We do not accept the test being sent in as a zip or similiar via mail. If you haven't worked with Zend Framework before it's easy to get going by read on <a href="http://framework.zend.com/">http://framework.zend.com</a> or use Google.</p>
+        <p>
+        Download the PSD for the design <a href="<?php echo $offset ?>/images/instruction/homework.psd">here</a>.
+        </p>
+    	<p>To get you going, click <a href="<?php echo $offset ?>">here</a> and view page source. </p>
+        </li>
+        <li>
+            <span class="title">Social Links hover *</span> <a href="<?php echo $offset ?>images/instruction/index-social-links-hover.png">(see screenshoot</a>)
+            <p>
+                Social links are located in the top right corner, upon hovering these they should have a background change effect.
+            </p>
+        </li>
+        <li>
+            <span class="title">Navigation *</span> <a href="<?php echo $offset ?>images/instruction/index-navigation-multi-level.png">(see screenshot)</a> 
+            <p>
+                The navigation is to be solved without any javascript, <u>only html and css are allowed</u>. Also make sure you get the hover states, background and text color changes.
+            </p>
+            <p>
+                For tablet and mobile view you are allowed to use javascript to solve some issues that might occur in these situations.
+            </p>
+        </li>
+        <li>
+            <span class="title">Cart hover *</span> (<a href="<?php echo $offset ?>images/instruction/index-cart-hover.png">see screenshoot</a>).
+            <p>The cart drop-down should be visible when you hovering on the cart and should still be shown when you hovering inside the drop-down. Use click instead of hover is not allowed.</p>
+        </li>
+        <li>
+            <span class="title">Tabs (Women, Men, Junior) *</span>
+            <p>
+                The title and content for the tabs are provided with json. You can find the data <a href="<?php echo $offset ?>tab/tabcontent/">here</a>. This is not supposed to be hardcoded. On every refresh the data should be fetched with a JavaScript ajax call and appended in its correct location.
+            </p>
+        </li>
+        <li><span class="title">Newsletter subscribe *</span><br><br>
+        <ul>
+        <li>6.1. <a href="<?php echo $offset ?>images/instruction/index-newsletter-subscribe-failed.png">Subscribe Failed</a></li>
+    	<li>6.2. <a href="<?php echo $offset ?>images/instruction/index-newsletter-subscribe-loading.png">Subscribe Loading</a></li>
+    	<li>6.3. <a href="<?php echo $offset ?>images/instruction/index-newsletter-subscribe-success.png">Subscribe Success</a></li>
+        </ul>
+        There are three layer compositions that illustrates a newsletter signup interaction. 
+    	To complete the newsletter subscribe ajax-functionality you have a pre-defined controller named NewsletterController.php located in 
+    	application/controllers/NewsletterController.php. <br><br>You should use the controller function named subscribe to generate the 
+    	response for the ajax request. <br>You can find the URL for the ajax-request: <a href="<?php echo $offset ?>newsletter/subscribe/">here</a>. 
+    	<br><br>If the user writes an incorrect email address and press submit or if the email address is valid a corresponding message, 
+    	as stated in the compositions above should be shown. You don't need to save any email address into a database, only validate it.
+        <br><br>It is not allowed to do the validation in JavaScript.
+        </li>
+        <li>
+            <span class="title">Products *</span>
+            <p>
+                The products will be available to you as an array, and it is up to you to present them in such way that they match the design under "Our Favourites". To get the products array use "<strong>$this->products()</strong>" inside any template file.<br>
+                We also want the products to be presented in alphabetically order, starting with "A" from the left.
+            </p>
+        </li>
+        <li>
+            <span class="title">Image Slider/Carousel *</span>
+            <p>
+                Implement functionality for the image slider/carousel with at least 3 different images. You should be able to navigate left, right and with the navigation dots.
+            </p>
+        </li>
+        <li>
+            <span class="title">Responsive (optional)</span>
+            <p>
+                This step is not mandatory, it is up to you how far you want to go to make it look good.
+            </p>
+        </li>
+    </ol>
+</div>
