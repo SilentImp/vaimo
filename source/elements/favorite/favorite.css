@@ -17,6 +17,7 @@
         font-size: 0;
         line-height: 0;
         white-space: nowrap;
+        transition: transform .25s;
         }
     &__button {
         @mixin clear_button;
@@ -63,6 +64,9 @@
         min-width: 60px;
         font-size: 0;
         z-index: 1;
+        &_hidden {
+            display: none;
+            }
         }
     &__title {
         white-space: nowrap;
@@ -72,11 +76,23 @@
         margin: 0 0 21px;
         padding: 0 0 0 30px;
         line-height: 30px;
-        box-shadow: inset 0 14px 0 0 $white, inset 0 16px 0 0 $grey-text;
+        position: relative;
+        &:after {
+            content: "";
+            display: block;
+            height: 2px;
+            position: absolute;
+            top: 14px;
+            left: 0;
+            right: 0;
+            background: $grey-text;
+            }
         span {
             padding: 0 17px;
             display: inline-block;
             background: $white;
+            position: relative;
+            z-index: 1;
             }
         }
     }

@@ -23,6 +23,14 @@ html{
         }
     }
 
+@media (max-width: 700px) {
+    html body {
+        &.navigation_open {
+            overflow: hidden;
+            height: 100%;
+            }
+        }
+    }
 
 @media (max-width: 500px) {
     html body {

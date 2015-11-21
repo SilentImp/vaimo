@@ -9,6 +9,7 @@
   "dependencies": {
     "classList.js": "https://github.com/eligrey/classList.js.git",
     "es5-shim": "https://github.com/es-shims/es5-shim.git",
-    "promise-polyfill": "~2.1.0"
+    "promise-polyfill": "~2.1.0",
+    "placeholders": "~4.0.1"
   }
 }

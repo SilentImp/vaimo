@@ -55,3 +55,23 @@
             }
         }
     }
+
+
+@media (max-width: 800px) {
+    html body .search {
+        margin: 0 0 20px;
+        clear: right;
+    }
+}
+
+@media (max-width: 600px) {
+    html body .search {
+        margin: 0 0 20px;
+        clear: both;
+        float: none;
+        display: flex;
+        &__keyword {
+            flex-grow: 2;
+        }
+    }
+}

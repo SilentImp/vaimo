@@ -87,6 +87,7 @@ gulp.task('js', function() {
         .pipe(sourcemaps.init())
         .pipe(babel())
         .pipe(concat("scripts.js"))
+        .pipe(uglify())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(dirs.build.js));
 });

@@ -59,7 +59,7 @@
                                 this.form.reset();
                                 this.setState();
                                 if (xhr.status === OK) {
-                                    resolve(xhr.statusText);
+                                    resolve(xhr.response);
                                 } else {
                                     reject(new Error(xhr.code + ': ' + xhr.statusText));
                                 }
@@ -79,7 +79,12 @@
          * @param {String} message server answer
          */
         success (message) {
-            this.setState('success');
+            let result = JSON.parse(message);
+            if (result.success){
+                this.setState('success');
+            } else {
+                this.setState('fail');
+            }
         }
 
         /**

@@ -1,6 +1,6 @@
 @import "../../helpers/*";
 
-.navigation{
+.navigation {
     clear: both;
     position: relative;
     max-width: 940px;
@@ -11,6 +11,9 @@
     border-bottom: 5px solid $tabs-text;
     z-index: 1;
     @mixin clear;
+    &__toggle {
+        display: none;
+        }
     &__title {
         color: $border-color;
         font-size: 12px;
@@ -46,7 +49,6 @@
             &:active,
             &:focus,
             &:hover {
-                border-color: $cyan;
                 color: $white;
                 background-color: $tabs-text;
                 }
@@ -55,7 +57,6 @@
             display: inline-block;
             position: relative;
             float: left;
-
             &_right {
                 float: right;
                 }
@@ -76,6 +77,12 @@
                     }
                 }
             &>.navigation {
+                &__link {
+                    &:hover {
+                        color: $white;
+                        background-color: $tabs-text;
+                        }
+                    }
                 &__label {
                     font-size: 12px;
                     line-height: 31px;
@@ -103,7 +110,8 @@
                             position: relative;
                             &:hover>.navigation {
                                 &__label {
-                                    background-color: $grey-blue;
+                                    color: $white;
+                                    background-color: $tabs-text;
                                     }
                                 &__container {
                                     display: block;
@@ -118,6 +126,12 @@
                                     background-color: $grey-light;
                                     padding: 7px 0;
                                     min-width: 100%;
+                                    }
+                                &__link {
+                                    &:hover {
+                                        color: $white;
+                                        background-color: $tabs-text;
+                                        }
                                     }
                                 &__label {
                                     font-size: 12px;
@@ -162,7 +176,8 @@
                             text-transform: uppercase;
                             &:hover,
                             &:focus {
-                                background-color: $grey-blue;
+                                background-color: $tabs-text;
+                                color: $white;
                                 }
                             }
                         }
@@ -171,3 +186,240 @@
             }
         }
     }
+
+
+@media (max-width: 700px) {
+    html body .navigation {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: $cyan;
+        z-index: 1000;
+        margin: 0;
+        padding: 60px 0 20px;
+        border-style: none;
+        overflow: auto;
+        overflow-x: hidden;
+        display: none;
+        &_open {
+            display: block;
+            }
+        &__toggle {
+            @mixin clear_button;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            z-index: 1003;
+            color: $white;
+            cursor: pointer;
+            font-size: 0;
+            &:hover,
+            &:focus {
+                background-color: color($cyan l(-10%));
+                }
+            &:active {
+                background-color: color($cyan l(-15%));
+                }
+            &:before {
+                @mixin icon '\f0c9';
+                font-size: 24px;
+                position: relative;
+                top: -1px;
+                right: -1px;
+                }
+            }
+        &>.navigation {
+
+            &__title {
+                height: 40px;
+                line-height: 40px;
+                padding: 0 20px;
+                }
+
+            &__dropdown {
+                display: block;
+                float: none;
+                position: relative;
+
+                &:hover{
+                    &>.navigation {
+                        &__container {
+                            display: none;
+                            &_open {
+                                display: block;
+                                }
+                            }
+                        &__label:after {
+                            color: $white;
+                            }
+                        }
+                    }
+
+                .navigation {
+                    &__title {
+                        height: 40px;
+                        line-height: 40px;
+                        padding: 0 20px;
+                        }
+                    &__link {
+                        height: 40px;
+                        line-height: 40px;
+                        border-style: none;
+                        display: block;
+                        float: none;
+                        padding: 0 20px;
+                        }
+
+                    &__label {
+                        height: 40px;
+                        line-height: 40px;
+                        border-style: none;
+                        display: block;
+                        float: none;
+                        padding: 0 0 0 20px;
+                        margin: 0;
+                        &:after {
+                            @mixin icon '\f0d7';
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            width: 40px;
+                            height: 40px;
+                            font-size: 18px;
+                            text-align: center;
+                            line-height: 40px;
+                            color: $border-color;
+                            padding: 0;
+                            }
+                        &_open {
+                            color: $white;
+                            background-color: $tabs-text;
+                            &:after {
+                                color: $white;
+                                @mixin icon '\f0d8';
+                                font-size: 18px;
+                                line-height: 40px;
+                                }
+                            }
+                        }
+
+                    &__container {
+                        position: relative;
+                        left: auto;
+                        top: auto;
+                        display: none;
+                        box-sizing: border-box;
+                        padding: 0;
+                        background-color: color($grey-light a(33%));
+                        &_open:hover,
+                        &_open {
+                            display: block;
+                            }
+
+                        .navigation {
+                            &__link,
+                            &__title {
+                                height: 40px;
+                                line-height: 40px;
+                                padding: 0 20px;
+                                }
+
+                            &__dropdown {
+                                padding: 0;
+
+                                &:hover {
+                                    &>.navigation {
+                                        &__label:after {
+                                            color: $white;
+                                            }
+                                        }
+                                    .navigation {
+                                        &__container {
+                                            display: none;
+                                            &_open {
+                                                display: block;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                .navigation {
+                                    &__link {
+                                        height: 40px;
+                                        line-height: 40px;
+                                        border-style: none;
+                                        display: block;
+                                        float: none;
+                                        padding: 0 20px;
+                                        }
+                                    &__label {
+                                        line-height: 40px;
+                                        height: 40px;
+                                        &:after {
+                                            @mixin icon '\f0d7';
+                                            position: absolute;
+                                            top: 0;
+                                            right: 0;
+                                            width: 40px;
+                                            height: 40px;
+                                            font-size: 18px;
+                                            text-align: center;
+                                            line-height: 40px;
+                                            color: $border-color;
+                                            padding: 0;
+                                            }
+                                        &:hover {
+                                            background-color: $tabs-text;
+                                            color: $white;
+                                            &:after {
+                                                color: $white;
+                                                }
+                                            }
+                                        &_open {
+                                            color: $white;
+                                            background-color: $tabs-text;
+                                            &:after {
+                                                color: $white;
+                                                @mixin icon '\f0d8';
+                                                font-size: 18px;
+                                                line-height: 40px;
+                                                }
+                                            }
+                                        }
+                                    &__container {
+                                        position: relative;
+                                        left: auto;
+                                        top: auto;
+                                        display: none;
+                                        box-sizing: border-box;
+                                        padding: 0;
+                                        background-color: color($grey-light a(33%));
+                                        &:hover,
+                                        &_open:hover,
+                                        &_open {
+                                            display: block;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            &__link {
+                height: 40px;
+                line-height: 40px;
+                border-style: none;
+                display: block;
+                float: none;
+                padding: 0 20px;
+            }
+        }
+    }
+}

@@ -1,7 +1,15 @@
 "use strict";
 (function () {
+    /**
+     * Controls scroller
+     * @class
+     */
     class Scroller {
 
+        /**
+         * Run init when dom is ready
+         * @constructs
+         */
         constructor() {
             let ready = new Promise(resolve => {
                 if (document.readyState != "loading") return resolve();
@@ -10,6 +18,9 @@
             ready.then(this.init.bind(this));
         }
 
+        /**
+         * Add events and initialize
+         */
         init() {
             this.scroller = document.querySelector('.scroller');
 
@@ -27,6 +38,9 @@
                 delete this.count;
                 return;
             }
+
+            this.transitions = document.documentElement.classList.contains('csstransitions');
+            this.transforms = document.documentElement.classList.contains('csstransforms');
 
             this.paginator = this.scroller.querySelector('.scroller__paginator');
             this.prev_button = this.scroller.querySelector('.scroller__prev');
@@ -52,71 +66,105 @@
             this.paginator_buttons = this.paginator.querySelectorAll('.scroller__page');
             this.current_button = this.paginator_buttons[0];
             this.current_button.classList.add('scroller__page_current');
-            
-            this.animation = false;
-            let transEndEventNames = {
-                    'WebkitTransition': 'webkitTransitionEnd',
-                    'MozTransition': 'transitionend',
-                    'OTransition': 'oTransitionEnd',
-                    'msTransition': 'MSTransitionEnd',
-                    'transition': 'transitionend'
-                }
-                , transEndEventName = transEndEventNames[Modernizr.prefixed('transition')];
 
-            if (Modernizr.hasEvent(transEndEventName, window)) {
-                this.wrapper.addEventListener(transEndEventName, this.checkIndex.bind(this));
+            this.animation = false;
+            this.tansition_timer = null;
+
+            if (this.transitions) {
+                let transEndEventNames = {
+                        'WebkitTransition': 'webkitTransitionEnd',
+                        'MozTransition': 'transitionend',
+                        'OTransition': 'oTransitionEnd',
+                        'msTransition': 'MSTransitionEnd',
+                        'transition': 'transitionend'
+                    };
+                this.wrapper.addEventListener(transEndEventNames[Modernizr.prefixed('transition')], this.checkIndex.bind(this));
             }
 
             this.moveToFirst().delay().then(this.turnOn.bind(this));
             window.addEventListener('resize', this.resized.bind(this));
         }
 
-        resized() {
-            this.turnOff().delay().then(function () {
-                this.moveToCurrent().delay().then(function () {
-                    this.turnOn();
-                }.bind(this));
-            }.bind(this));
-        }
 
+        /**
+         * Move to current slide
+         */
         moveToCurrent() {
             this.move(this.current_page);
             return this;
         }
 
+        /**
+         * Move to first slide
+         */
         moveToFirst() {
             this.current_page = 0;
             this.reposSlide();
             return this;
         }
 
+        /**
+         * Move to last slide
+         */
         moveToLast() {
             this.current_page = this.count - 1;
             this.reposSlide();
             return this;
         }
 
+        /**
+         * Turn on scroll animation
+         */
         turnOn() {
             this.wrapper.style[Modernizr.prefixed('transition')] = Modernizr.prefixed('transform') + ' .25s';
             return this;
         }
 
+        /**
+         * Turn off scroll animation
+         */
         turnOff() {
             this.wrapper.style[Modernizr.prefixed('transition')] = 'none';
             return this;
         }
 
+        /**
+         * Show slide
+         * @param {Number} index — slide number
+         */
         move(index) {
-            this.wrapper.style[Modernizr.prefixed('transform')] = 'translateX(' + (-this.wrapper.offsetWidth * (index + 1)) + 'px)';
+            if (this.transforms) {
+                this.wrapper.style[Modernizr.prefixed('transform')] = 'translateX(' + (-this.wrapper.offsetWidth * (index + 1)) + 'px)';
+            } else {
+                this.wrapper.style.right = (-this.wrapper.offsetWidth * (index + 1)) + 'px';
+            }
         }
 
+        /**
+         * Rewind slides on resize
+         */
+        async resized() {
+            this.turnOff();
+            await this.delay(25);
+            this.moveToCurrent();
+            await this.delay(25);
+            this.turnOn();
+        }
+
+        /**
+         * Delay, so browser may rebuild DOM and CSS
+         * @param {Number} milliseconds — delay duration
+         */
         async delay(milliseconds) {
             return new Promise(resolve => {
                 setTimeout(resolve, milliseconds);
             });
         }
 
-        async checkIndex(event) {
+        /**
+         * Rewind slides
+         */
+        async checkIndex() {
             if (this.current_page == -1) {
                 this.turnOff();
                 await this.delay(25);
@@ -133,19 +181,32 @@
             this.stopAnimation();
         }
 
+        /**
+         * Remove animation flag
+         */
         stopAnimation() {
             this.animation = false;
         }
 
+        /**
+         * Set animation flag
+         */
         startAnimation() {
             this.animation = true;
         }
 
+        /**
+         * Remove animation flag by timeout
+         */
         dropAnimation() {
             if (typeof (this.timer) != 'undefined') clearTimeout(this.timer);
             this.timer = setTimeout(this.stopAnimation.bind(this), 350);
         }
 
+        /**
+         * Create paginator button
+         * @param {Number} index — slide number
+         */
         createButton(index) {
             let button = document.createElement('BUTTON'), span = document.createElement('SPAN');
             button.setAttribute('type', 'button');
@@ -156,12 +217,22 @@
             this.paginator.appendChild(button);
         }
 
+        /**
+         * Scroll to current slide
+         */
         openSlide() {
             this.reposSlide();
             this.dropAnimation();
+            if(!this.transitions) {
+                if (this.tansition_timer!=null) clearTimeout(this.tansition_timer);
+                this.tansition_timer = setTimeout(this.checkIndex.bind(this), 250);
+            }
         }
 
-        openPrevSlide(event) {
+        /**
+         * Scroll to previous slide
+         */
+        openPrevSlide() {
             if (this.animation === true) return;
             this.startAnimation();
 
@@ -170,7 +241,10 @@
             this.openSlide();
         }
 
-        openNextSlide(event) {
+        /**
+         * Scroll to next slide
+         */
+        openNextSlide() {
             if (this.animation === true) return;
             this.startAnimation();
 
@@ -179,6 +253,10 @@
             this.openSlide();
         }
 
+        /**
+         * Scroll to selected slide
+         * @param {Event} event — click event, so we may get paginator button
+         */
         scrollToSlide(event) {
             if (this.animation === true) return;
             this.startAnimation();
@@ -189,6 +267,9 @@
             this.openSlide();
         }
 
+        /**
+         * Move scroller to selected slide and set buttons state
+         */
         reposSlide() {
             this.current_button.classList.toggle('scroller__page_current', false);
             this.current_button = this.paginator_buttons[Math.min(Math.max(this.current_page, 0), this.count - 1)];

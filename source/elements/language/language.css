@@ -24,3 +24,37 @@
         line-height: 0;
         }
     }
+
+@media (max-width: 500px) {
+    html body .language {
+        width: 35px;
+        padding: 0;
+        overflow: hidden;
+        font-size: 0;
+        min-width: initial;
+        position: relative;
+        &:hover:before {
+            background: $blue;
+            }
+        &:after {
+            display: none;
+            }
+        &:before {
+            @mixin icon '\f0ac';
+            font-size: 20px;
+            line-height: 28px;
+            width: 35px;
+            height: 28px;
+            color: $white;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 999;
+            background: $cyan-dark;
+            transition: background .25s;
+            }
+        }
+    }

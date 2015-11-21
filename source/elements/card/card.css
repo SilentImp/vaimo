@@ -83,3 +83,18 @@
         @mixin clear;
         }
     }
+
+@media (max-width: 800px) {
+    html body .card {
+        margin: 0 0 20px;
+        clear: right;
+    }
+}
+
+@media (max-width: 600px) {
+    html body .card {
+        margin: 0 0 20px;
+        clear: both;
+        float: none;
+    }
+}
